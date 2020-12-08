@@ -291,4 +291,12 @@ void Pila::InvertirPila()
 	LlenarPila(aux2);
 }
 
+void Pila::ConvertirLista(Lista *A){
+	while(PilaLlena() == false){
+		Apilar(A->sacar());
+		A->mostrarLista();
+		Mostrar();
+	}	
+}
+
 Pila::~Pila() { }

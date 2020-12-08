@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ClaseListaCircular.h"
+#include "ClaseLista.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ class Pila{
 		void LlenarPila(Pila A);
 		void Mostrar();
 		void InvertirPila();
+		void ConvertirLista(Lista *);
 		~Pila();
 		friend class Cola;
 };

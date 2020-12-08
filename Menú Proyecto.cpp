@@ -1,8 +1,8 @@
 /********************************************************************************************
 * -Proyecto Pilas, Colas y Recursividad                                                                   *
 * -Grupo de trabajo:                                                         *
-* -Fecha de creación: 04/12/2020                                                           *
-* -Última modificación:                                                          *
+* -Fecha de creaciÃ³n: 04/12/2020                                                           *
+* -Ãšltima modificaciÃ³n:                                                          *
 * -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
 *********************************************************************************************/
 
@@ -10,11 +10,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "ClaseCola.h"
-#include "ClasePila.h"
-#include "ClaseLista.h"
+#include "ClaseCola_Pila.h"
 
 using namespace std;
+
 short MENU(){
 	short opc;
 	system("cls");
@@ -183,7 +182,7 @@ int main(int argc, char** argv) {
 							case 2: 
 								//metodo insertar en una lista circular	
 								//Metodo de contar elementos de la lista
-								Cola A(/*tama�o cola*/);
+								Cola A(/*tamaño cola*/);
 								//metodo convertir lista en cola
 								
 								A.Mostrar();
@@ -217,7 +216,7 @@ int main(int argc, char** argv) {
 								L.mostrarLista();
 								//metodo convertir Lista en Pila
 								//metodo contar elementos de la lista
-								Pila P1(/*Tama�o Pila*/);
+								Pila P1(/*Tamaño Pila*/);
 								
 								P1.mostrar();
 								system("pause"); 

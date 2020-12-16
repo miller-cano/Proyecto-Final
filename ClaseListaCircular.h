@@ -1,3 +1,12 @@
+/********************************************************************************************
+* -Proyecto Final                                                                           *
+* -Clase Lista circular                                                                     *
+* -Grupo de trabajo: MSCA                                                                   *
+* -Fecha de creacion: 04/12/2020                                                            *
+* -Ultima modificacion: 15/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include "ClaseNodoListaCircular.h"
 #include <string.h>
@@ -11,7 +20,6 @@ class Lista_C
 	public:
 		Lista_C();
 		Nodo * GetCabeza(void);
-		void crearLista();
 		void insertarFinal(int nro);
 		void mostrarLista();
 		int contarNodos();
@@ -40,6 +48,9 @@ void Lista_C::insertarFinal(int d){
 	      p = p->GetLiga();
 	}
 	p->SetLiga(nuevo);
+	cout<<"\n ************************************";
+	cout<<"\n |          DATO INSERTADO          |";
+	cout<<"\n ************************************"<<endl;
 }
 
 void Lista_C::mostrarLista()
@@ -61,25 +72,44 @@ void Lista_C::mostrarLista()
 int Lista_C::sacarDato()
 {
 	int d;
-	Nodo *p;
+	Nodo *p, *q;
 	p = cabeza->GetLiga();
-	while(p->GetLiga() != cabeza) {
-		p = p->GetLiga();
+	if(p != NULL){
+		if(p->GetLiga() != cabeza){
+			q = cabeza->GetLiga();
+			while(p->GetLiga() != cabeza) {
+				p = p->GetLiga();
+			}
+			while(q->GetLiga() != p){
+				q = q->GetLiga();
+			}
+			q->SetLiga(cabeza);
+			d = p->GetDato();
+			delete p;
+		}
+		else{
+			d = p->GetDato();
+			delete p;
+			cabeza->SetLiga(cabeza);
+		}
 	}
-	d = p->GetDato();
-	delete p;
+	else{
+		cout<<"\n\t*********************************";
+		cout<<"\n\t|      LA LISTA ESTA VACIA      |";
+		cout<<"\n\t*********************************"<<endl;
+	}
 	return d;
 }
 
 int Lista_C::contarNodos(){
-	int i = 0;
+	int c = 0;
 	Nodo *p;
 	p = cabeza->GetLiga();
-	while(p->GetLiga() != cabeza) {
+	while(p != cabeza) {
 		p = p->GetLiga();
-		i++;
+		c++;
 	}
-	return i;
+	return c;
 }
 
 Lista_C::~Lista_C() { }

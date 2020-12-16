@@ -1,3 +1,12 @@
+/********************************************************************************************
+* -Proyecto Final                                                                           *
+* -Clase pila y cola                                                                        *
+* -Grupo de trabajo: SAH, MSCA, AMP y SMJ                                                   *
+* -Fecha de creacion: 04/12/2020                                                            *
+* -Ultima modificacion: 15/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include "ClaseListaCircular.h"
 #include "ClaseLista.h"
@@ -53,7 +62,7 @@ class Cola{
 		void Convertir_Lista(Lista_C *);
 		void ConvertirCola(Pila *A);
 		void Convertir_Pila(Pila *);
-		void IntercalarColas(Cola A, Cola B);
+		void IntercalarColas(Cola *A, Cola *B);
 		~Cola();
 		friend class Pila;
 };

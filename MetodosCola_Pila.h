@@ -1,3 +1,12 @@
+/********************************************************************************************
+* -Proyecto Final                                                                           *
+* -Metodos de las pilas y colas                                                             *
+* -Grupo de trabajo: SAH, MSCA, AMP y SMJ                                                   *
+* -Fecha de creacion: 04/12/2020                                                            *
+* -Ultima modificacion: 15/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include "ClaseCola_Pila.h"
 
@@ -104,13 +113,12 @@ void Cola::Mostrar()
 		aux.Encolar(t);
 	}
 	LlenarCola(aux);
-	cout<<"\n\n";
+	cout<<"\n";
 }
 
 void Cola::Convertir_Lista(Lista_C *A){
 	while(ColaLlena() == false){
 		Encolar(A->sacarDato());
-		A->mostrarLista();
 	}
 }
 
@@ -128,39 +136,37 @@ void Cola::Convertir_Pila(Pila *A)
 
 void Cola::ConvertirCola(Pila *A)
 {
-	while (A->PilaLlena() == false){
+	while (ColaVacia() == false){
 		A->Apilar(Desencolar());
 	}
 	
 	A->InvertirPila();
 }
 
-void Cola::IntercalarColas (Cola A, Cola B)
+void Cola::IntercalarColas (Cola *A, Cola *B)
 {
-	Cola AuxA(A.GetLimite()+1);
-	Cola AuxB(B.GetLimite()+1);
+	Cola AuxA(A->GetLimite()+1);
+	Cola AuxB(B->GetLimite()+1);
 	int r,d;	
-	if (A.ColaVacia() == false || B.ColaVacia() == false){
-		while (A.ColaVacia() == false && B.ColaVacia() == false){		
-			r = A.Desencolar();
-			d = B.Desencolar();	
+	if (A->ColaVacia() == false || B->ColaVacia() == false){
+		while (A->ColaVacia() == false && B->ColaVacia() == false){		
+			r = A->Desencolar();
+			d = B->Desencolar();	
 			Encolar(r);
 			Encolar(d);
 			AuxA.Encolar(r);
 			AuxB.Encolar(d);
 		}
 	
-		while(A.ColaVacia() == false){
-			r = A.Desencolar();
+		while(A->ColaVacia() == false){
+			r = A->Desencolar();
 			Encolar(r);
 		}
 		
-		while(B.ColaVacia() == false){
-			d = B.Desencolar();
+		while(B->ColaVacia() == false){
+			d = B->Desencolar();
 			Encolar(d);
 		}
-		A.LlenarCola(AuxA);
-		B.LlenarCola(AuxB);
 	}
 	else{
 		cout<<"\nLAS COLAS ESTAN VACIAS"<<endl;
@@ -294,8 +300,6 @@ void Pila::InvertirPila()
 void Pila::ConvertirLista(Lista *A){
 	while(PilaLlena() == false){
 		Apilar(A->sacar());
-		A->mostrarLista();
-		Mostrar();
 	}	
 }
 

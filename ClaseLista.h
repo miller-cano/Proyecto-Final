@@ -1,3 +1,12 @@
+/********************************************************************************************
+* -Proyecto Final                                                                           *
+* -Clase lista simple                                                                       *
+* -Grupo de trabajo: MSCA y SMJ                                                             *
+* -Fecha de creacion: 04/12/2020                                                            *
+* -Ultima modificacion: 15/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include "ClaseNodo_Lista.h"
 #include <string.h>
@@ -16,7 +25,7 @@ class Lista
 		int contar();
 		int sacar();
 		~Lista();
-	
+	friend class Pila;
 };
  
 Lista::Lista()
@@ -64,9 +73,12 @@ void Lista::mostrarLista(){
 			i++;
 		}
 		cout<<"\n\t*********************************"<<endl;
-
-	}else{
-		cout<<"\n\t\tLA LISTA ESTA VACIA. "<<endl<<endl;
+	}
+		
+	else{	
+		cout<<"\n\t*********************************";
+		cout<<"\n\t|      LA LISTA ESTA VACIA      |";
+		cout<<"\n\t*********************************"<<endl;
 	}
 }
 
@@ -75,10 +87,10 @@ int Lista::contar(){
 	int contador  = 0;
 	
 	p = Punta;
-		while(p != NULL){
-			p = p->GetLiga();
-			contador++;
-		}
+	while(p != NULL){
+		p = p->GetLiga();
+		contador++;
+	}
 	
 	return contador;
 }
@@ -104,15 +116,17 @@ int Lista::sacar(){
 			q->SetLiga(NULL);
 			r = p->GetDato();
 			delete p;
-	}else{
-		r = Punta->GetDato();
-		Punta = NULL;
-	
-		
+		}
+		else{
+			r = Punta->GetDato();
+			Punta = NULL;
+		}
 	}
-}else{
-	cout<<"La lista esta vacia, no se puede sacar mas";
-}
+	else{
+		cout<<"\n\t*********************************";
+		cout<<"\n\t|      LA LISTA ESTA VACIA      |";
+		cout<<"\n\t*********************************"<<endl;
+	}
 	return r;
 }
 

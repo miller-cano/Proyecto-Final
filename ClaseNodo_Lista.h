@@ -1,3 +1,12 @@
+/********************************************************************************************
+* -Proyecto Final                                                                           *
+* -Clase Nodo para la lista simple                                                          *
+* -Grupo de trabajo: MSCA y SMJ                                                             *
+* -Fecha de creacion: 04/12/2020                                                            *
+* -Ultima modificacion: 15/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include <string.h>
 
@@ -10,7 +19,7 @@ class Nodo_L{
 		
 	public:	
 		Nodo_L();
-		Nodo_L *GetLiga(void);
+		Nodo_L * GetLiga(void);
 		void SetLiga(Nodo_L *);
 		int GetDato(void);
 		void SetDato(int);
